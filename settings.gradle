@@ -1,0 +1,4 @@
+rootProject.name = 'vigra'
+include 'kit'
+include 'entry'
+
