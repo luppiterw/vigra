@@ -12,3 +12,18 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
+
+task hello << {
+    println 'entry.hello task'
+}
+
+task initilizeDatabase
+initilizeDatabase << {
+    println 'connect to database'
+}
+initilizeDatabase << {
+    println 'update database schema'
+}
+initilizeDatabase {
+    println 'closure initilizeDatabase'
+}

@@ -15,5 +15,5 @@ dependencies {
 
 
 task hello << {
-    println 'hahahah --- ---hhh'
+    println 'kit.build.gradle [task][hello]'
 }
