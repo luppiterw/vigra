@@ -81,5 +81,10 @@ tasks.create(name:'mehhC2', type: Copy) {
 println "mehh2.name = " + mehh2.name
 println "project.mehhC.name = " + project.mehhC.name
 //通过 tasks 集合访问任务
-println "tasks.mehh2.name" + tasks.mehh2.name
-println "tasks['mehhC'].name" + tasks['mehhC'].name
+println "tasks.mehh2.name = " + tasks.mehh2.name
+println "tasks['mehhC'].name = " + tasks['mehhC'].name
+//通过路径访问任务
+println "tasks.getByPath('mehh2').path = " + tasks.getByPath('mehh2').path
+println "tasks.getByPath(':entry:mehh2').path = " + tasks.getByPath(':entry:mehh2').path
+
+
