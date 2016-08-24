@@ -132,14 +132,29 @@ testDependsOn2.dependsOn(origin)
 //< doLast方法略
 
 //< 测试onlyIf方法
-task testOIFBase << {
-    println 'testOIFBase task action'
-}
-task testOIF << {
-    println 'testOIF task action'
-}
-testOIF.dependsOn << testOIFBase
-testOIF.onlyIf {
-    System.properties['load.data'] == 'true'
-//    true
-}
+//task testOIFBase << {
+//    println 'testOIFBase task action'
+//}
+//task testOIF << {
+//    println 'testOIF task action'
+//}
+//testOIF.dependsOn << testOIFBase
+//testOIF.onlyIf {
+//    System.properties['load.data'] == 'true'
+////    true
+//}
+
+//< 测试didWork
+//task emailMe << {
+//    println tasks.compileJava.didWork
+////    compileJava.didWork = true
+//    if(tasks.compileJava.didWork) {
+//        println 'SEND EMAIL ANNOUNCING SUCCESS'
+//    } else {
+//        println 'SEND EMAIL ANNOUNCING FAILED'
+//    }
+//}
+//emailMe.dependsOn << compileJava
+
+
+
