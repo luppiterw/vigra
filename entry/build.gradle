@@ -216,8 +216,17 @@ task dyProperties {
 //    ext.dyThis = "sdsds"
 //    extensions.dyThis = "ddd"
     extensions.add("dyThis", "dsd")
+    extensions.fileList = ['white.cvs', 'black.exe']
 }
 //dyProperties.setProperty("dyThis", "ddd")
 //def ddd = dyProperties.getProperty("dyThis")
 println dyProperties.dyThis
+println dyProperties.fileList
 
+dyProperties.fileList.each {
+    file ->
+        println "   => " + file
+        println "       => $file"
+        println "           => ${file}"
+}
+println '$dyProperties.fileList=' + "${dyProperties.fileList}"
