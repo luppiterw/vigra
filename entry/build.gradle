@@ -193,12 +193,31 @@ testDependsOn2.dependsOn(origin)
 //task helloWorld(description: 'Says hello to the world') << {
 //    println 'hello, world'
 //}
-task helloWorld << {
-    println 'hello, world => ' + description
+//task helloWorld << {
+//    println 'hello, world => ' + description
+//}
+//helloWorld.description 'Says hello to the world'
+
+//< 测试动态属性
+task copyFiles {
+// Find files from wherever, copy them
+// (then hardcode a list of files for illustration)
+//    fileManifest = [ 'data.csv', 'config.json' ]
+//    fileManifest=['data.csv','config.json']
+//    fileManifest='asd'
 }
-helloWorld.description 'Says hello to the world'
+task createArtifact << {
+    println "FILES IN MANIFEST: ${copyFiles.fileManifest}"
+}
+createArtifact.dependsOn copyFiles
 
-
-
-
+//def dyThis
+task dyProperties {
+//    ext.dyThis = "sdsds"
+//    extensions.dyThis = "ddd"
+    extensions.add("dyThis", "dsd")
+}
+//dyProperties.setProperty("dyThis", "ddd")
+//def ddd = dyProperties.getProperty("dyThis")
+println dyProperties.dyThis
 
