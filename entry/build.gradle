@@ -50,30 +50,32 @@ testDependsOn2.dependsOn(origin)
 /**
  * 测试dependsOn在task configuration上的使用
  * */
-task originC {
-    println 'originC task configuration'
-}
-task originC2 {
-    println 'originC2 task configuration'
-}
-task originC3 {
-    println 'originC3 task configuration'
-}
-task originC4 {
-    println 'originC4 task configuration'
-}
-task testDependsOn3 (dependsOn: [originC2, originC3]){
-    println 'testDependsOn3 task configuration before'
-    dependsOn originC
-    /**
-     * 以下写法都是支持的
-     * dependsOn 'originC'
-     * dependsOn(originC)
-     * */
-    println 'testDependsOn3 task configuration after'
-}
-testDependsOn3.dependsOn originC4
-
+//task originC << {
+//    println 'originC task configuration'
+//}
+//task originC2 << {
+//    println 'originC2 task configuration'
+//}
+//
+//task boriginC4 << {
+//    println 'boriginC4 task configuration'
+//}
+//task originC3 << {
+//    println 'originC3 task configuration'
+//}
+////task testDependsOn3 (dependsOn: [originC2, originC3]){
+//task testDependsOn3 << {
+//    println 'testDependsOn3 task configuration before'
+//    dependsOn << originC
+//    /**
+//     * 以下写法都是支持的
+//     * dependsOn 'originC'
+//     * dependsOn(originC)
+//     * */
+//    println 'testDependsOn3 task configuration after'
+//}
+//testDependsOn3.dependsOn(originC2, boriginC4, originC3)
+//testDependsOn3.dependsOn originC4
 //task(mehh) {
 //    println 'task(mehh) task configuration'
 //}
@@ -98,3 +100,33 @@ testDependsOn3.dependsOn originC4
 //println "tasks.getByPath(':entry:mehh2').path = " + tasks.getByPath(':entry:mehh2').path
 //
 
+
+/**
+ * 测试doFirst方法
+ * */
+//task doFirstTest << {
+//    println 'doFirstBase task action '
+//}
+//doFirstTest.doFirst {
+//    println 'doFirstTest.doFirst called in function'
+//}
+//doFirstTest {
+//    doFirst {
+//        println 'doFirstTest.doFirst called in configuration'
+//    }
+//}
+//task doFirstTest2
+//doFirstTest2 {
+//    println 'doFirstTest2  configuration'
+//    doFirst {
+//        println 'doFirstTest2.doFirst called in configuration'
+//    }
+//}
+//task doFirstTest3 {
+//    println 'doFirstTest3  configuration'
+//    doFirst {
+//        println 'doFirstTest3.doFirst called in configuration'
+//    }
+//}
+
+//< doLast方法略
