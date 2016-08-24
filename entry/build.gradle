@@ -17,13 +17,48 @@ task hello << {
     println 'entry.hello task'
 }
 
-task initilizeDatabase
-initilizeDatabase << {
-    println 'connect to database'
+/* gradle -b entry/build.gradle testQ   执行结果为
+testQ null
+:entry:testQ
+testQ << 1
+testQ << 2 */
+//task testQ
+task testQ << {
+    print 'testQ << 1'
 }
-initilizeDatabase << {
-    println 'update database schema'
+testQ << {
+    println 'testQ << 2'
 }
-initilizeDatabase {
-    println 'closure initilizeDatabase'
+testQ {
+    println 'testQ task configuration null'
 }
+
+//< dependsOn(task)
+task origin << {
+    println 'origin task action'
+}
+task originC {
+    println 'originC task configuration'
+}
+task testDependsOn << {
+    dependsOn << origin
+    println 'testDependsOn task action'
+}
+task testDependsOn2 << {
+    println 'testDependsOn2 task action'
+}
+testDependsOn2.dependsOn(origin)
+
+task testDependsOn3 {
+    println 'testDependsOn3 task configuration before'
+    dependsOn originC
+    /**
+     * 以下写法都是支持的
+     * dependsOn 'originC'
+     * dependsOn(originC)
+     * */
+    println 'testDependsOn3 task configuration after'
+}
+
+
+
