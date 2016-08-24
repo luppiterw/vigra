@@ -155,6 +155,50 @@ testDependsOn2.dependsOn(origin)
 //    }
 //}
 //emailMe.dependsOn << compileJava
+//< 测试enabled
+//task templates << {
+//    println 'process email templates'
+//}
+//task sendEmails << {
+//    println 'send emails'
+//}
+//sendEmails.dependsOn << templates
+//sendEmails.enabled = false
+//< 测试path
+//task echoMyPath << {
+//    println "THIS TASK'S PATH IS ${path}"
+//    println "THIS TASK'S PATH IS $path"
+//}
+//< 测试logger/logging
+//task logLevel << {
+//    def levels = ['DEBUG', 'INFO', 'LIFECYCLE', 'QUIET', 'WARN', 'ERROR']
+//    levels.each {
+//        level ->
+//        logging.level = level
+//        def logMessage = "SETTING LogLevel=${level}"
+//        logger.error logMessage
+//        logger.error '-' * logMessage.size()
+//        logger.debug 'DEBUG ENABLED'
+//        logger.info 'INFO ENABLED'
+//        logger.lifecycle 'LIFECYCLE ENABLED'
+//        logger.warn 'WARN ENABLED'
+//        logger.quiet 'QUIET ENABLED'
+//        logger.error 'ERROR ENABLED'
+//        println 'THIS IS println OUTPUT'
+//        logger.error ' '
+//    }
+//}
+
+//< 测试description
+//task helloWorld(description: 'Says hello to the world') << {
+//    println 'hello, world'
+//}
+task helloWorld << {
+    println 'hello, world => ' + description
+}
+helloWorld.description 'Says hello to the world'
+
+
 
 
 
