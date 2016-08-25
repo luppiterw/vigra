@@ -198,35 +198,52 @@ testDependsOn2.dependsOn(origin)
 //}
 //helloWorld.description 'Says hello to the world'
 
-//< 测试动态属性
-task copyFiles {
-// Find files from wherever, copy them
-// (then hardcode a list of files for illustration)
-//    fileManifest = [ 'data.csv', 'config.json' ]
-//    fileManifest=['data.csv','config.json']
-//    fileManifest='asd'
-}
-task createArtifact << {
-    println "FILES IN MANIFEST: ${copyFiles.fileManifest}"
-}
-createArtifact.dependsOn copyFiles
+////< 测试动态属性
+//task copyFiles {
+//// Find files from wherever, copy them
+//// (then hardcode a list of files for illustration)
+////    fileManifest = [ 'data.csv', 'config.json' ]
+////    fileManifest=['data.csv','config.json']
+////    fileManifest='asd'
+//}
+//task createArtifact << {
+//    println "FILES IN MANIFEST: ${copyFiles.fileManifest}"
+//}
+//createArtifact.dependsOn copyFiles
 
-//def dyThis
-task dyProperties {
-//    ext.dyThis = "sdsds"
-//    extensions.dyThis = "ddd"
-    extensions.add("dyThis", "dsd")
-    extensions.fileList = ['white.cvs', 'black.exe']
-}
-//dyProperties.setProperty("dyThis", "ddd")
-//def ddd = dyProperties.getProperty("dyThis")
-println dyProperties.dyThis
-println dyProperties.fileList
+////def dyThis
+//task dyProperties {
+////    ext.dyThis = "sdsds"
+////    extensions.dyThis = "ddd"
+//    extensions.add("dyThis", "dsd")
+//    extensions.fileList = ['white.cvs', 'black.exe']
+//}
+////dyProperties.setProperty("dyThis", "ddd")
+////def ddd = dyProperties.getProperty("dyThis")
+//println dyProperties.dyThis
+//println dyProperties.fileList
+//
+//dyProperties.fileList.each {
+//    file ->
+//        println "   => " + file
+//        println "       => $file"
+//        println "           => ${file}"
+//}
+//println '$dyProperties.fileList=' + "${dyProperties.fileList}"
 
-dyProperties.fileList.each {
-    file ->
-        println "   => " + file
-        println "       => $file"
-        println "           => ${file}"
-}
-println '$dyProperties.fileList=' + "${dyProperties.fileList}"
+//task copyFiles(type: Copy) {
+//    from '/Users/hughie/GradleTestWorkspace/vigra/t1'
+//    into '/Users/hughie/GradleTestWorkspace/vigra/t3'
+//    include '**/*.xml', '**/*.txt', '**/*.pp'
+//    println 'copyFiles'
+////    exclude '*.pp'
+//}
+
+
+//println 'project.buildDir = ' + project.buildDir
+//println 'buildDir = ' + buildDir
+//println project.allprojects
+//println project.extensions.extraProperties.properties
+//println project.artifacts.properties
+//println project.configurations.properties
+//println project.version
