@@ -1,1 +1,1 @@
-voyage
+vigra.test1
