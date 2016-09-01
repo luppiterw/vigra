@@ -247,3 +247,5 @@ testDependsOn2.dependsOn(origin)
 //println project.artifacts.properties
 //println project.configurations.properties
 //println project.version
+
+
